@@ -1,0 +1,50 @@
+{
+  "_args": [
+    [
+      "inertia-app-framework-vuetify@0.0.14",
+      "/var/www"
+    ]
+  ],
+  "_development": true,
+  "_from": "inertia-app-framework-vuetify@0.0.14",
+  "_id": "inertia-app-framework-vuetify@0.0.14",
+  "_inBundle": false,
+  "_integrity": "sha512-CYKj49vBO7YGDKrQh4xduAzC+njM/Cr/RokgsN1qx8cIdofcCGmIMbfiY6VRz2je+slEidvsCpEOrNHkj5/PBQ==",
+  "_location": "/inertia-app-framework-vuetify",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "inertia-app-framework-vuetify@0.0.14",
+    "name": "inertia-app-framework-vuetify",
+    "escapedName": "inertia-app-framework-vuetify",
+    "rawSpec": "0.0.14",
+    "saveSpec": null,
+    "fetchSpec": "0.0.14"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/inertia-app-framework-vuetify/-/inertia-app-framework-vuetify-0.0.14.tgz",
+  "_shasum": "9e1336aeb3dce26cc6cc8c7b4180a946a3ff6fff",
+  "_spec": "0.0.14",
+  "_where": "/var/www",
+  "author": {
+    "name": "Ian Rothmann"
+  },
+  "deprecated": false,
+  "description": "A front-end framework to complement the composer package \"ianrothmann/inertia-laravel-app-service\"",
+  "keywords": [
+    "inertia",
+    "vuetify",
+    "vue",
+    "laravel"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "inertia-app-framework-vuetify",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.14"
+}
