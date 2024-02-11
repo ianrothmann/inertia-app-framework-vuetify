@@ -114,7 +114,7 @@
 
 <script>
     import AppFrameworkEventBus from './plugins/event-hub';
-    import {typeHelpers} from './index';
+    import typeHelpers from './mixins/TypeHelpersMixin';
    // import RocketFormRenderer from './RocketFormRenderer';
 
     export default {

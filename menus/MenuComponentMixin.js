@@ -1,9 +1,14 @@
+import menu from "./Menu.vue";
+
 export default {
     props : {
-        items : Array
+        items : {
+            type: Array,
+            default: () => []
+        }
     },
     data: () => ({
-        openGroups: {}
+        openGroups: []
     }),
     computed : {
 
@@ -29,6 +34,11 @@ export default {
         },
         getKey(menuItem){
             let url = menuItem.url;
+
+            if (!url && !menuItem.route && menuItem.items && menuItem.items.length > 0) {
+                return menuItem.label;
+            }
+
             if(!url){
                 url=this.$route(menuItem.route,menuItem.route_params)
             }
@@ -50,9 +60,11 @@ export default {
             return window.location.pathname;
         },
         setOpenGroups() {
-            this.items.forEach((item, itemIndex) => {
-                if(item.items !== undefined) {
-                    this.$set(this.openGroups, itemIndex, this.hasChildSelected(item));
+            this.items.forEach((menuItem) => {
+                if (menuItem.items) {
+                    if(this.hasChildSelected(menuItem)) {
+                        this.openGroups.push(this.getKey(menuItem))
+                    }
                 }
             });
         }

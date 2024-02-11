@@ -1,13 +1,31 @@
-import Vue from 'vue';
+import { reactive, readonly } from 'vue';
 
-export default new Vue({
-    data: {
-        currentID: 0
+const state = reactive({
+    events: {}
+});
+
+const EventBus = {
+    $on(eventName, callback) {
+        if (!state.events[eventName]) {
+            state.events[eventName] = [];
+        }
+        state.events[eventName].push(callback);
     },
-    methods: {
-        getUniqueID(prefix) {
-            this.currentID++;
-            return 'app_' + prefix + this.currentID;
+
+    $emit(eventName, ...args) {
+        if (state.events[eventName]) {
+            state.events[eventName].forEach(callback => callback(...args));
+        }
+    },
+
+    $off(eventName, callback) {
+        if (state.events[eventName]) {
+            const index = state.events[eventName].indexOf(callback);
+            if (index > -1) {
+                state.events[eventName].splice(index, 1);
+            }
         }
     }
-});
+};
+
+export default readonly(EventBus);

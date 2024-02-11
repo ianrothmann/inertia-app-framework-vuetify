@@ -34,6 +34,12 @@
   },
   "deprecated": false,
   "description": "A front-end framework to complement the composer package \"ianrothmann/inertia-laravel-app-service\"",
+  "dependencies": {
+    "@inertiajs/vue3": "^1.0.14",
+    "moment": "^2.29.4",
+    "vue": "^3.2.45",
+    "vuetify": "^3.5.3"
+  },
   "keywords": [
     "inertia",
     "vuetify",
