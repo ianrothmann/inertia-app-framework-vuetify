@@ -1,22 +1,20 @@
 <template>
     <div class="app-framework">
         <v-snackbar
+            horizontal="right"
             :timeout="snackbar.duration"
-            :top="snackbar.vertical === 'top'"
-            :bottom="snackbar.vertical === 'bottom'"
-            :right="snackbar.horizontal === 'right'"
-            :left="snackbar.horizontal === 'left'"
             v-model="showSnackbar"
             :multi-line="true"
-
+            :location="snackbarPosition"
+            variant="elevated"
         >
             <div v-html="snackbar.message"></div>
-            <template v-slot:action="{ attrs }">
+            <template v-slot:actions>
                 <v-btn
                     :class="[snackbar.messageType+'--text']"
                     text
-                    v-bind="attrs"
                     @click.native="showSnackbar = false"
+                    :color="snackbar.messageType"
                 >
                     OK
                 </v-btn>
@@ -68,7 +66,7 @@
                         v-for="(btn, buttonKey) in dialogOptions.buttons"
                         :key="buttonKey"
                         :class="[objProp(btn, 'color', 'primary') + '--text']"
-                        :text="coalesce(btn.text, true)"
+                        :text="coalesce(btn.text, 'Cancel')"
                         @click.native.stop="dialogButtonClicked(buttonKey)"
                         v-html="isObject(btn) ? btn.label : btn"
                     ></v-btn>
@@ -128,7 +126,10 @@
             },
             activityIndeterminate() {
                 return this.activityLoaderProgress === null;
-            }
+            },
+            snackbarPosition() {
+                return `${this.snackbar.vertical} ${this.snackbar.horizontal}`;
+            },
         },
         data() {
             return {
