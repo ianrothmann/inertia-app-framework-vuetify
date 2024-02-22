@@ -15,6 +15,7 @@ const AppFrameworkPlugin = {
         app.component("app-framework-breadcrumbs", Breadcrumbs);
         app.component("app-framework-search-bar", SearchBar);
 
+        app.component("app-framework-search-bar", SearchBar);
         // Replacing Vue.prototype with app.config.globalProperties in Vue 3
         app.config.globalProperties.$snackbar = (message, messageType, vertical, horizontal, duration) => {
             let opt = {message, messageType, vertical, horizontal, duration};
